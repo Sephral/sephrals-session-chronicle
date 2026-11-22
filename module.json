@@ -1,0 +1,57 @@
+{
+  "id": "sephrals-session-chronicle",
+  "title": "Sephral’s Session Chronicle",
+  "description": "A recap of every game night, written for you without AI: one journal page per session with scenes, fights, level ups, loot, shown handouts and big rolls, a Previously card at the next start and a private What you missed for players who come late.",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": 13,
+    "verified": "14.370"
+  },
+  "authors": [
+    {
+      "name": "Sephral",
+      "url": "https://github.com/Sephral"
+    }
+  ],
+  "url": "https://github.com/Sephral/sephrals-session-chronicle.git",
+  "relationships": {
+    "recommends": [
+      {
+        "id": "sephrals-combat-log-stats",
+        "type": "module",
+        "manifest": "https://github.com/Sephral/sephrals-combat-log-stats/releases/latest/download/module.json",
+        "reason": "Adds the numbers of the night's fights to the page: damage, healing and the hero of the night."
+      },
+      {
+        "id": "sephrals-campaign-album",
+        "type": "module",
+        "manifest": "https://github.com/Sephral/sephrals-campaign-album/releases/latest/download/module.json",
+        "reason": "Puts the photos taken during the night on the page."
+      },
+      {
+        "id": "sephrals-loot-ledger",
+        "type": "module",
+        "manifest": "https://github.com/Sephral/sephrals-loot-ledger/releases/latest/download/module.json",
+        "reason": "Lists the loot the party found during the night."
+      }
+    ]
+  },
+  "esmodules": [
+    "scripts/ssc.mjs"
+  ],
+  "styles": [
+    "styles/ssc.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "de",
+      "name": "Deutsch",
+      "path": "lang/de.json"
+    }
+  ]
+}

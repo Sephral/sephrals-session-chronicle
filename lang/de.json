@@ -1,0 +1,239 @@
+{
+  "SSC": {
+    "gear": "Einstellungen",
+    "Title": "Session Chronicle",
+    "LANGUAGE": {
+      "default": "Wie Foundry",
+      "de": "Deutsch",
+      "en": "English"
+    },
+    "SETTINGS": {
+      "uiLanguage": {
+        "name": "Sprache des Moduls",
+        "hint": "Sprache von Session Chronicle auf diesem Gerät. „Wie Foundry“ folgt der Sprache von Foundry. Seiten und Karten entstehen in der Sprache der SL, die aufzeichnet."
+      },
+      "theme": {
+        "name": "Aussehen",
+        "hint": "Signature zeigt Fenster und Karten auf warmem Papier, Foundry hält sie dunkel wie den Rest von Foundry.",
+        "signature": "Signature (Papier)",
+        "foundry": "Foundry (dunkel)"
+      },
+      "recording": {
+        "name": "Spielabende aufzeichnen",
+        "hint": "Das Modul hält fest, was passiert, solange Spieler online sind, und schreibt für jede Sitzung eine Seite."
+      },
+      "recordAlone": {
+        "name": "Auch ohne Spieler aufzeichnen",
+        "hint": "Hält auch fest, was passiert, wenn du allein online bist. Standardmäßig aus, damit deine Vorbereitung nicht zur Sitzung wird."
+      },
+      "gapHours": {
+        "name": "Stunden zwischen zwei Sitzungen",
+        "hint": "Eine neue Sitzung beginnt, wenn nach so vielen Stunden Ruhe wieder etwas passiert."
+      },
+      "autoPage": {
+        "name": "Seite selbst schreiben",
+        "hint": "Die Seite entsteht, wenn eine Weile nichts passiert oder der letzte Spieler geht. Du kannst sie jederzeit selbst schreiben."
+      },
+      "idleMinutes": {
+        "name": "Minuten Ruhe vor dem Schreiben",
+        "hint": "Wie lange nichts passieren muss, bevor die Seite geschrieben wird."
+      },
+      "previously": {
+        "name": "Karte Was bisher geschah",
+        "hint": "Zu Beginn der nächsten Sitzung erzählt eine Karte im Chat allen, was beim letzten Mal geschah.",
+        "everyone": "Allen zeigen",
+        "gm": "Nur mir zeigen",
+        "off": "Nicht zeigen"
+      },
+      "missed": {
+        "name": "Was du verpasst hast",
+        "hint": "Wer zu spät kommt oder nach einer Pause zurückkehrt, bekommt eine private Karte mit dem, was inzwischen geschah."
+      },
+      "missedMinutes": {
+        "name": "Minuten, ab denen jemand etwas verpasst hat",
+        "hint": "Wer kürzer weg war, bekommt keine Karte."
+      },
+      "playerAccess": {
+        "name": "Spieler dürfen die Chronik lesen",
+        "hint": "Alle können die Seiten öffnen. Schalte es aus, damit das Journal nur für die SL bleibt. Die Karte Was bisher geschah hat dann keinen Knopf zum Öffnen, erzählt den Spielern im Chat aber trotzdem eine Kurzfassung. Schalte sie mit der Einstellung zur Karte Was bisher geschah aus."
+      },
+      "partnerData": {
+        "name": "Andere Module von Sephral nutzen",
+        "hint": "Ergänzt Zahlen, Fotos und Beute von Combat Log und Stats, Campaign Album und Loot Ledger, wenn sie aktiv sind."
+      },
+      "highlights": {
+        "name": "Natürliche 20 und 1 festhalten",
+        "hint": "Öffentliche W20-Würfe der Spieler mit einer natürlichen 20 oder 1 erscheinen unter Große Momente."
+      },
+      "shown": {
+        "name": "Gezeigte Bilder und Handouts festhalten",
+        "hint": "Was du den Spielern zeigst, erscheint unter Am Tisch gezeigt."
+      }
+    },
+    "Menu": {
+      "title": "Session Chronicle",
+      "open": "Chronik öffnen",
+      "hint": "Die laufende Sitzung und die Seiten der vergangenen Sitzungen."
+    },
+    "SELFTEST": {
+      "Title": "Selbsttest",
+      "Run": "Selbsttest starten",
+      "Hint": "Prüft nach einem Update, ob alles da ist, worauf sich das Modul stützt.",
+      "Passed": "Selbsttest bestanden: {checks} Prüfungen.",
+      "Problems": "Selbsttest: {problems} Probleme in {checks} Prüfungen.",
+      "Version": "Foundry {current}, geprüft mit {tested}.",
+      "NewVersions": "Foundry ist neuer als die geprüfte Version ({versions}). Starte den Selbsttest, wenn etwas nicht stimmt.",
+      "Partners": "Gefundene Module von Sephral: {partners}.",
+      "NoPartners": "Kein anderes Modul von Sephral aktiv, das Daten für die Seiten liefert.",
+      "Application": "Die Fensterklassen von Foundry fehlen.",
+      "Templates": "Die Vorlagenfunktion von Foundry fehlt.",
+      "Template": "Die Vorlage {file} lässt sich nicht laden.",
+      "Journal": "Die Journale von Foundry sind anders aufgebaut als erwartet. Seiten lassen sich nicht schreiben.",
+      "Chat": "Der Chat von Foundry ist anders aufgebaut als erwartet. Die Karten lassen sich nicht senden.",
+      "Ownership": "Die Berechtigungsstufen von Foundry sind anders aufgebaut als erwartet. Spieler können die Seiten womöglich nicht lesen.",
+      "Users": "Die Benutzerliste von Foundry ist anders aufgebaut als erwartet. Anwesenheit und aktive SL lassen sich nicht finden.",
+      "Socket": "Der Socket von Foundry fehlt. Gezeigte Bilder und Handouts werden nicht bemerkt.",
+      "Documents": "Die Szenen, Kämpfe oder Verknüpfungen von Foundry fehlen.",
+      "I18n": "Der Übersetzungsdienst von Foundry fehlt.",
+      "State": "Der gespeicherte Zustand des Moduls lässt sich nicht lesen.",
+      "Logic": "Das Finden der Sitzungen und das Schreiben der Seiten liefert falsche Ergebnisse.",
+      "Texts": "Fehlende Texte: {keys}"
+    },
+    "DEBUG": {
+      "Title": "Debug-Datei",
+      "Save": "Debug-Datei speichern",
+      "Hint": "Eine Datei über alle Module von Sephral in dieser Welt, für Fehlerberichte. Sie enthält Chattexte und Flüsternachrichten.",
+      "Entry": "Session Chronicle",
+      "Saved": "Debug-Datei gespeichert: {file}. Sie enthält Chattexte und Flüsternachrichten, prüfe sie, bevor du sie weitergibst."
+    },
+    "Journal": {
+      "name": "Chronik"
+    },
+    "App": {
+      "title": "Session Chronicle",
+      "current": "Laufende Sitzung",
+      "sessionTitle": "Sitzung {number}",
+      "since": "seit {time} Uhr, {date}",
+      "nobody": "Kein Spieler ist online.",
+      "noFacts": "Noch nichts festgehalten.",
+      "noSession": "Es läuft keine Sitzung. Eine beginnt, sobald Spieler online sind und etwas passiert.",
+      "removeFact": "Diesen Eintrag von der Seite nehmen",
+      "noteLabel": "Eine Zeile von dir für die Seite",
+      "notePlaceholder": "Woran soll sich die Runde von diesem Abend erinnern?",
+      "noteHintOpen": "Kommt auf die Seite und auf die Karte Was bisher geschah bei der nächsten Sitzung.",
+      "noteHintLast": "Ändert die Seite {name}.",
+      "noteHintNone": "Erscheint, sobald die erste Sitzung geschrieben ist.",
+      "write": "Seite jetzt schreiben",
+      "written": "Seite geschrieben: {name}",
+      "end": "Sitzung beenden",
+      "endConfirm": "Die Sitzung beenden und ihre Seite endgültig schreiben? Die nächste Aktivität beginnt eine neue Sitzung.",
+      "ended": "Sitzung beendet: {name}",
+      "endedEmpty": "Die Sitzung hatte nichts zu schreiben.",
+      "openJournal": "Journal öffnen",
+      "onlyActive": "Nur die aktive SL kann Seiten schreiben und Sitzungen beenden.",
+      "past": "Vergangene Sitzungen",
+      "noPages": "Noch keine Seite. Die erste entsteht nach dem ersten Spielabend.",
+      "previously": "Die Karte Was bisher geschah im Chat zeigen",
+      "noAccess": "Du hast keinen Zugriff auf diese Seite.",
+      "pageSummary": "Am Tisch: {players}, Einträge: {facts}"
+    },
+    "Kind": {
+      "scene": "Szenen",
+      "combat": "Kämpfe",
+      "level": "Stufenaufstiege",
+      "item": "Gegenstände",
+      "shown": "Gezeigt",
+      "roll": "Große Würfe"
+    },
+    "KindOne": {
+      "scene": "Szene",
+      "combat": "Kampf",
+      "level": "Stufenaufstieg",
+      "item": "Gegenstand",
+      "shown": "Gezeigt",
+      "roll": "Großer Wurf"
+    },
+    "Fact": {
+      "scene": "Szene: {name}",
+      "combat": "Kampf bei {scene}, {rounds}, {defeated} besiegt",
+      "level": "{actor} erreichte Stufe {level}",
+      "item": "{actor} bekam {name} ×{count}",
+      "shownJournal": "Handout gezeigt: {title}",
+      "shownImage": "Bild gezeigt: {title}",
+      "crit": "{who} würfelte eine natürliche 20",
+      "fumble": "{who} würfelte eine natürliche 1"
+    },
+    "Page": {
+      "title": "Sitzung {number}, {date}",
+      "span": "{day}, {from} bis {to} Uhr",
+      "note": "Von der SL",
+      "who": "Am Tisch",
+      "fights": "Kämpfe",
+      "highlights": "Große Momente",
+      "levels": "Stufenaufstiege",
+      "items": "Beute und Gegenstände",
+      "shown": "Am Tisch gezeigt",
+      "scenes": "Wohin die Gruppe kam",
+      "photos": "Fotos",
+      "quiet": "Zu dieser Sitzung wurde nichts festgehalten.",
+      "foot": "Aus den Fakten zusammengestellt von Session Chronicle."
+    },
+    "Text": {
+      "and": "und",
+      "times": "{name} ×{count}",
+      "visits": "{name} ({count} Besuche)",
+      "scenes": "Die Gruppe besuchte {names}.",
+      "scenesMore": "Die Gruppe besuchte {names}. Weitere Orte: {count}.",
+      "somewhere": "irgendwo",
+      "roundsOne": "{count} Runde",
+      "roundsOther": "{count} Runden",
+      "fight": "{scene}: {rounds}, besiegt wurden {foes}.",
+      "fightNone": "{scene}: {rounds}, niemand wurde besiegt.",
+      "downed": "Zu Boden gingen: {names}.",
+      "level": "{actor} erreichte Stufe {level}.",
+      "gained": "{actor} bekam {items}.",
+      "shownJournal": "Handout gezeigt: {title}",
+      "shownImage": "Bild gezeigt: {title}",
+      "handoutsOne": "{count} Handout",
+      "handoutsOther": "{count} Handouts",
+      "picturesOne": "{count} Bild",
+      "picturesOther": "{count} Bilder",
+      "shownCard": "Am Tisch gezeigt: {parts}.",
+      "crit": "{who} würfelte eine natürliche 20{flavor}.",
+      "fumble": "{who} würfelte eine natürliche 1{flavor}.",
+      "playerAs": "{player} als {character}",
+      "late": "(kam später)",
+      "found": "Als Beute gefunden: {items}."
+    },
+    "Combat": {
+      "overview": "Insgesamt {fights} mit {rounds}.",
+      "fightsOne": "{count} Kampf",
+      "fightsOther": "{count} Kämpfe",
+      "roundsOne": "{count} Runde",
+      "roundsOther": "{count} Runden",
+      "damageHealing": "Die Helden teilten {damage} Schaden aus und heilten {healing}.",
+      "damage": "Die Helden teilten {damage} Schaden aus.",
+      "healing": "Die Helden heilten {healing}.",
+      "defeatedOne": "{count} Gegner besiegt.",
+      "defeatedOther": "{count} Gegner besiegt.",
+      "downedOne": "{count} Held ging zu Boden.",
+      "downedOther": "{count} Helden gingen zu Boden.",
+      "critsOne": "{count} kritischer Treffer.",
+      "critsOther": "{count} kritische Treffer.",
+      "mvp": "Held des Abends: {names}."
+    },
+    "Card": {
+      "previously": "Was bisher geschah",
+      "session": "Sitzung {number}, {date}",
+      "quiet": "Ein ruhiger Abend, nichts zu berichten.",
+      "open": "Chronik öffnen"
+    },
+    "Missed": {
+      "title": "Was du verpasst hast",
+      "sinceStart": "Seit Beginn der Sitzung",
+      "sinceAway": "Während du weg warst",
+      "last": "Letztes Mal, Sitzung {number}, {date}",
+      "private": "Das siehst nur du."
+    }
+  }
+}

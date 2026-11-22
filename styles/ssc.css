@@ -1,0 +1,355 @@
+/* Session Chronicle: the window, the chat cards and the session pages. Two looks on one markup: "signature" and "foundry". */
+
+.ssc-card,
+.ssc-app {
+  --ssc-paper: #fbf6ea;
+  --ssc-paper-2: #f3ecde;
+  --ssc-ink: #1f1a17;
+  --ssc-muted: #6f655d;
+  --ssc-line: rgb(73 49 32 / 0.18);
+  --ssc-soft: rgb(73 49 32 / 0.07);
+  --ssc-field: #fffdf7;
+  --ssc-accent: #8a4b1f;
+  --ssc-accent-soft: rgb(138 75 31 / 0.12);
+  --ssc-on-accent: #fffaf0;
+  --ssc-radius: 12px;
+}
+
+.ssc-card[data-ssc-theme="foundry"],
+.ssc-app[data-ssc-theme="foundry"] {
+  --ssc-paper: #24211e;
+  --ssc-paper-2: #1c1a18;
+  --ssc-ink: #ece5d8;
+  --ssc-muted: #aba191;
+  --ssc-line: rgb(255 255 255 / 0.14);
+  --ssc-soft: rgb(255 255 255 / 0.06);
+  --ssc-field: rgb(0 0 0 / 0.25);
+  --ssc-accent: #e0a15c;
+  --ssc-accent-soft: rgb(224 161 92 / 0.18);
+  --ssc-on-accent: #1c1a18;
+  --ssc-radius: 6px;
+}
+
+/* The chat cards */
+
+.ssc-card {
+  box-sizing: border-box;
+  padding: 10px 14px 12px;
+  border: 1px solid var(--ssc-line);
+  border-radius: var(--ssc-radius);
+  background: linear-gradient(180deg, var(--ssc-paper) 0%, var(--ssc-paper-2) 100%);
+  color: var(--ssc-ink);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.ssc-card header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 6px;
+  margin-bottom: 6px;
+  border-bottom: 1px solid var(--ssc-line);
+}
+
+.ssc-card header > i {
+  font-size: 22px;
+  color: var(--ssc-accent);
+}
+
+.ssc-card h3 {
+  margin: 0;
+  border: 0;
+  font-size: 17px;
+  line-height: 1.2;
+  color: var(--ssc-ink);
+}
+
+.ssc-card h4 {
+  margin: 8px 0 2px;
+  border: 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ssc-muted);
+}
+
+.ssc-card small {
+  color: var(--ssc-muted);
+}
+
+.ssc-card ul {
+  margin: 4px 0 6px;
+  padding: 0 0 0 18px;
+  list-style: disc outside;
+}
+
+.ssc-card li {
+  margin: 2px 0;
+}
+
+.ssc-card blockquote {
+  margin: 4px 0 6px;
+  padding: 6px 10px;
+  border: 0;
+  border-left: 3px solid var(--ssc-accent);
+  background: var(--ssc-accent-soft);
+  font-style: italic;
+}
+
+.ssc-card button {
+  width: 100%;
+  margin-top: 4px;
+  background: var(--ssc-accent);
+  color: var(--ssc-on-accent);
+  border: 0;
+  border-radius: var(--ssc-radius);
+  line-height: 26px;
+  cursor: pointer;
+}
+
+.ssc-card .ssc-private {
+  display: block;
+  margin-top: 4px;
+}
+
+.ssc-card .ssc-quiet {
+  margin: 4px 0 6px;
+  color: var(--ssc-muted);
+}
+
+/* The window */
+
+.ssc-app .window-content {
+  padding: 0;
+  background: linear-gradient(180deg, var(--ssc-paper) 0%, var(--ssc-paper-2) 100%);
+  color: var(--ssc-ink);
+}
+
+.ssc-app .ssc-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px 14px 14px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.ssc-app h2 {
+  margin: 0 0 6px;
+  border: 0;
+  font-size: 15px;
+  color: var(--ssc-ink);
+}
+
+.ssc-app h2 i {
+  color: var(--ssc-accent);
+  margin-right: 4px;
+}
+
+.ssc-app section {
+  padding: 10px 12px;
+  border: 1px solid var(--ssc-line);
+  border-radius: var(--ssc-radius);
+  background: var(--ssc-soft);
+}
+
+.ssc-app .ssc-meta {
+  margin: 0 0 2px;
+  font-weight: 600;
+}
+
+.ssc-app .ssc-meta span,
+.ssc-app .ssc-hint,
+.ssc-app .ssc-quiet,
+.ssc-app .ssc-time {
+  font-weight: 400;
+  color: var(--ssc-muted);
+}
+
+.ssc-app .ssc-hint {
+  margin: 2px 0 6px;
+  font-size: 12px;
+}
+
+.ssc-app .ssc-people {
+  margin: 0 0 6px;
+}
+
+.ssc-app .ssc-counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.ssc-app .ssc-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1px 8px;
+  border: 1px solid var(--ssc-line);
+  border-radius: 999px;
+  background: var(--ssc-accent-soft);
+}
+
+.ssc-app .ssc-chip i {
+  color: var(--ssc-accent);
+}
+
+.ssc-app .ssc-facts,
+.ssc-app .ssc-pages {
+  margin: 0 0 8px;
+  padding: 0;
+  list-style: none;
+  max-height: 220px;
+  overflow: auto;
+}
+
+.ssc-app .ssc-facts li {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 2px 0;
+  border-bottom: 1px dashed var(--ssc-line);
+}
+
+.ssc-app .ssc-facts .ssc-text {
+  flex: 1;
+}
+
+.ssc-app .ssc-pages li {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.ssc-app button {
+  color: var(--ssc-ink);
+  background: var(--ssc-field);
+  border: 1px solid var(--ssc-line);
+  border-radius: var(--ssc-radius);
+  cursor: pointer;
+}
+
+.ssc-app button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.ssc-app .ssc-page {
+  flex: 1;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 6px 10px;
+  text-align: left;
+}
+
+.ssc-app .ssc-page small {
+  display: block;
+  color: var(--ssc-muted);
+}
+
+.ssc-app .ssc-num {
+  display: inline-grid;
+  place-items: center;
+  min-width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--ssc-accent);
+  color: var(--ssc-on-accent);
+  font-weight: 700;
+}
+
+.ssc-app .ssc-icon {
+  flex: 0 0 auto;
+  width: 28px;
+  min-height: 28px;
+  padding: 0;
+  line-height: 1;
+}
+
+.ssc-app .ssc-note-label {
+  display: block;
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+.ssc-app .ssc-note-field {
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+  color: var(--ssc-ink);
+  background: var(--ssc-field);
+  border: 1px solid var(--ssc-line);
+  border-radius: var(--ssc-radius);
+}
+
+.ssc-app .ssc-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ssc-app .ssc-buttons button {
+  flex: 1 1 140px;
+  padding: 4px 8px;
+}
+
+/* The pages of the Chronicle journal */
+
+.ssc-page-html,
+.journal-entry-page .ssc-page {
+  line-height: 1.5;
+}
+
+.ssc-page h2 {
+  margin-top: 1em;
+  font-size: 1.15em;
+}
+
+.ssc-page h2 i {
+  width: 1.4em;
+  text-align: center;
+  color: #8a4b1f;
+}
+
+.ssc-page .ssc-span {
+  margin: 0 0 0.6em;
+  opacity: 0.7;
+}
+
+.ssc-page .ssc-note {
+  margin: 0 0 1em;
+  padding: 0.4em 1em;
+  border-left: 4px solid #8a4b1f;
+  background: rgb(138 75 31 / 0.1);
+}
+
+.ssc-page .ssc-note h3 {
+  margin: 0.2em 0;
+  font-size: 1em;
+}
+
+.ssc-page .ssc-photos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 8px;
+}
+
+.ssc-page .ssc-photos figure {
+  margin: 0;
+}
+
+.ssc-page .ssc-photos img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.ssc-page .ssc-foot,
+.ssc-page .ssc-quiet {
+  opacity: 0.6;
+  font-size: 0.85em;
+}

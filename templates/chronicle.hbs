@@ -1,0 +1,51 @@
+<div class="ssc-body">
+  {{#if isGM}}
+  <section class="ssc-current">
+    <h2><i class="fa-solid fa-circle-play"></i> {{text.current}}</h2>
+    {{#if session}}
+    <p class="ssc-meta">{{session.title}} <span>{{session.started}}</span></p>
+    <p class="ssc-people"><i class="fa-solid fa-users"></i> {{#if session.players.length}}{{session.playersText}}{{else}}{{text.nobody}}{{/if}}</p>
+    <div class="ssc-counts">
+      {{#each session.counts}}<span class="ssc-chip" title="{{label}}"><i class="fa-solid {{icon}}"></i> {{count}} <small>{{label}}</small></span>{{else}}<span class="ssc-quiet">{{../text.noFacts}}</span>{{/each}}
+    </div>
+    {{#if session.facts.length}}
+    <ul class="ssc-facts" data-ssc-facts>
+      {{#each session.facts}}
+      <li data-fact="{{id}}"><span class="ssc-time">{{time}}</span> <span class="ssc-text">{{text}}</span>
+        {{#if ../canWrite}}<button type="button" class="ssc-icon" data-action="removeFact" data-fact="{{id}}" data-tooltip="{{../text.removeFact}}" aria-label="{{../text.removeFact}}"><i class="fa-solid fa-xmark"></i></button>{{/if}}</li>
+      {{/each}}
+    </ul>
+    {{/if}}
+    {{else}}
+    <p class="ssc-quiet">{{text.noSession}}</p>
+    {{/if}}
+
+    <label class="ssc-note-label" for="ssc-note">{{text.noteLabel}}</label>
+    <textarea id="ssc-note" class="ssc-note-field" rows="3" maxlength="2000" placeholder="{{text.notePlaceholder}}" {{#unless canWrite}}disabled{{/unless}}>{{noteValue}}</textarea>
+    <p class="ssc-hint">{{noteHint}}</p>
+
+    <div class="ssc-buttons">
+      <button type="button" data-action="writeNow" {{#unless canWriteNow}}disabled{{/unless}}><i class="fa-solid fa-feather-pointed"></i> {{text.write}}</button>
+      <button type="button" data-action="endSession" {{#unless canEnd}}disabled{{/unless}}><i class="fa-solid fa-flag-checkered"></i> {{text.end}}</button>
+      <button type="button" data-action="openJournal" {{#unless hasJournal}}disabled{{/unless}}><i class="fa-solid fa-book"></i> {{text.openJournal}}</button>
+    </div>
+    {{#unless canWrite}}<p class="ssc-hint">{{text.onlyActive}}</p>{{/unless}}
+  </section>
+  {{/if}}
+
+  <section class="ssc-past">
+    <h2><i class="fa-solid fa-scroll"></i> {{text.past}}</h2>
+    {{#if pages.length}}
+    <ul class="ssc-pages">
+      {{#each pages}}
+      <li>
+        <button type="button" class="ssc-page" data-action="openPage" data-page="{{id}}"><span class="ssc-num">{{number}}</span> <span>{{name}}<small>{{summary}}</small></span></button>
+        {{#if ../canWrite}}<button type="button" class="ssc-icon" data-action="previously" data-page="{{id}}" data-tooltip="{{../text.previously}}" aria-label="{{../text.previously}}"><i class="fa-solid fa-book-open"></i></button>{{/if}}
+      </li>
+      {{/each}}
+    </ul>
+    {{else}}
+    <p class="ssc-quiet">{{text.noPages}}</p>
+    {{/if}}
+  </section>
+</div>

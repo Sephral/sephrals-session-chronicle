@@ -1,0 +1,239 @@
+{
+  "SSC": {
+    "gear": "Settings",
+    "Title": "Session Chronicle",
+    "LANGUAGE": {
+      "default": "Like Foundry",
+      "de": "Deutsch",
+      "en": "English"
+    },
+    "SETTINGS": {
+      "uiLanguage": {
+        "name": "Module language",
+        "hint": "Language of Session Chronicle on this device. \"Like Foundry\" follows Foundry's language. Pages and cards are written in the language of the GM who records."
+      },
+      "theme": {
+        "name": "Look",
+        "hint": "Signature shows the window and the cards on warm paper, Foundry keeps them dark like the rest of Foundry.",
+        "signature": "Signature (paper)",
+        "foundry": "Foundry (dark)"
+      },
+      "recording": {
+        "name": "Record game nights",
+        "hint": "The module notes what happens while players are online and writes one page for each session."
+      },
+      "recordAlone": {
+        "name": "Record without players",
+        "hint": "Also note facts when you are the only one online. Off by default, so your preparation does not turn into a session."
+      },
+      "gapHours": {
+        "name": "Hours between two sessions",
+        "hint": "A new session starts when something happens after this many hours of quiet."
+      },
+      "autoPage": {
+        "name": "Write the page by itself",
+        "hint": "The page is written when nothing has happened for a while or when the last player leaves. You can always write it yourself."
+      },
+      "idleMinutes": {
+        "name": "Minutes of quiet before writing",
+        "hint": "How long nothing must happen before the page is written."
+      },
+      "previously": {
+        "name": "Previously card",
+        "hint": "At the start of the next session a card in the chat tells everyone what happened last time.",
+        "everyone": "Show to everyone",
+        "gm": "Show to me only",
+        "off": "Do not show"
+      },
+      "missed": {
+        "name": "What you missed",
+        "hint": "A player who comes late or comes back after a break gets a private card with what happened in the meantime."
+      },
+      "missedMinutes": {
+        "name": "Minutes before a player has missed something",
+        "hint": "A player who was away for less than this gets no card."
+      },
+      "playerAccess": {
+        "name": "Players may read the Chronicle",
+        "hint": "Everyone can open the pages. Switch off to keep the journal for the GM. The Previously card then has no open button, but it still tells players a short version in the chat. Turn that off with the Previously card setting."
+      },
+      "partnerData": {
+        "name": "Use other Sephral modules",
+        "hint": "Adds the numbers, photos and loot of Combat Log and Stats, Campaign Album and Loot Ledger when they are active."
+      },
+      "highlights": {
+        "name": "Note natural 20s and 1s",
+        "hint": "Public d20 rolls of the players with a natural 20 or 1 appear under Big moments."
+      },
+      "shown": {
+        "name": "Note shown pictures and handouts",
+        "hint": "What you show to the players appears under Shown at the table."
+      }
+    },
+    "Menu": {
+      "title": "Session Chronicle",
+      "open": "Open the chronicle",
+      "hint": "The running session and the pages of past sessions."
+    },
+    "SELFTEST": {
+      "Title": "Self test",
+      "Run": "Run self test",
+      "Hint": "Checks after an update that everything the module relies on is there.",
+      "Passed": "Self test passed: {checks} checks.",
+      "Problems": "Self test: {problems} problems in {checks} checks.",
+      "Version": "Foundry {current}, verified with {tested}.",
+      "NewVersions": "Foundry is newer than the verified version ({versions}). Run the self test if something looks wrong.",
+      "Partners": "Other Sephral modules found: {partners}.",
+      "NoPartners": "No other Sephral module that adds data to the pages is active.",
+      "Application": "Foundry's window classes are missing.",
+      "Templates": "Foundry's template renderer is missing.",
+      "Template": "The template {file} cannot be loaded.",
+      "Journal": "Foundry's journals are built differently than expected. Pages cannot be written.",
+      "Chat": "Foundry's chat is built differently than expected. The cards cannot be posted.",
+      "Ownership": "Foundry's permission levels are built differently than expected. Players may not be able to read the pages.",
+      "Users": "Foundry's user list is built differently than expected. Attendance and the active GM cannot be found.",
+      "Socket": "Foundry's socket is missing. Shown pictures and handouts are not noticed.",
+      "Documents": "Foundry's scenes, combats or links are missing.",
+      "I18n": "Foundry's translation service is missing.",
+      "State": "The saved state of the module cannot be read.",
+      "Logic": "Finding sessions and writing the pages gives wrong results.",
+      "Texts": "Missing texts: {keys}"
+    },
+    "DEBUG": {
+      "Title": "Debug file",
+      "Save": "Save debug file",
+      "Hint": "One file about all of Sephral’s modules in this world, for bug reports. It contains chat text and whispers.",
+      "Entry": "Session Chronicle",
+      "Saved": "Debug file saved: {file}. It contains chat text and whispers, check it before you share it."
+    },
+    "Journal": {
+      "name": "Chronicle"
+    },
+    "App": {
+      "title": "Session Chronicle",
+      "current": "Running session",
+      "sessionTitle": "Session {number}",
+      "since": "since {time}, {date}",
+      "nobody": "No player is online.",
+      "noFacts": "Nothing noted yet.",
+      "noSession": "No session is running. One starts when players are online and something happens.",
+      "removeFact": "Remove this entry from the page",
+      "noteLabel": "A line from you for the page",
+      "notePlaceholder": "What should everyone remember about this night?",
+      "noteHintOpen": "Goes on the page and on the Previously card at the next session.",
+      "noteHintLast": "Changes the page {name}.",
+      "noteHintNone": "Appears once the first session has been written.",
+      "write": "Write page now",
+      "written": "Page written: {name}",
+      "end": "End session",
+      "endConfirm": "End the session and write its page for good? The next activity starts a new session.",
+      "ended": "Session ended: {name}",
+      "endedEmpty": "The session had nothing to write.",
+      "openJournal": "Open journal",
+      "onlyActive": "Only the active GM can write pages and end sessions.",
+      "past": "Past sessions",
+      "noPages": "No page yet. The first one appears after the first game night.",
+      "previously": "Show the Previously card in the chat",
+      "noAccess": "You have no access to this page.",
+      "pageSummary": "At the table: {players}, notes: {facts}"
+    },
+    "Kind": {
+      "scene": "Scenes",
+      "combat": "Fights",
+      "level": "Level ups",
+      "item": "Items",
+      "shown": "Shown",
+      "roll": "Big rolls"
+    },
+    "KindOne": {
+      "scene": "Scene",
+      "combat": "Fight",
+      "level": "Level up",
+      "item": "Item",
+      "shown": "Shown",
+      "roll": "Big roll"
+    },
+    "Fact": {
+      "scene": "Scene: {name}",
+      "combat": "Fight at {scene}, {rounds}, {defeated} defeated",
+      "level": "{actor} reached level {level}",
+      "item": "{actor} gained {name} ×{count}",
+      "shownJournal": "Handout shown: {title}",
+      "shownImage": "Picture shown: {title}",
+      "crit": "{who} rolled a natural 20",
+      "fumble": "{who} rolled a natural 1"
+    },
+    "Page": {
+      "title": "Session {number}, {date}",
+      "span": "{day}, {from} to {to}",
+      "note": "From the GM",
+      "who": "At the table",
+      "fights": "Fights",
+      "highlights": "Big moments",
+      "levels": "Level ups",
+      "items": "Loot and items",
+      "shown": "Shown at the table",
+      "scenes": "Where the party went",
+      "photos": "Photos",
+      "quiet": "Nothing was recorded for this session.",
+      "foot": "Put together from the facts by Session Chronicle."
+    },
+    "Text": {
+      "and": "and",
+      "times": "{name} ×{count}",
+      "visits": "{name} ({count} visits)",
+      "scenes": "The party visited {names}.",
+      "scenesMore": "The party visited {names}. More places: {count}.",
+      "somewhere": "somewhere",
+      "roundsOne": "{count} round",
+      "roundsOther": "{count} rounds",
+      "fight": "{scene}: {rounds}, defeated {foes}.",
+      "fightNone": "{scene}: {rounds}, nobody was defeated.",
+      "downed": "Heroes down: {names}.",
+      "level": "{actor} reached level {level}.",
+      "gained": "{actor} gained {items}.",
+      "shownJournal": "Handout shown: {title}",
+      "shownImage": "Picture shown: {title}",
+      "handoutsOne": "{count} handout",
+      "handoutsOther": "{count} handouts",
+      "picturesOne": "{count} picture",
+      "picturesOther": "{count} pictures",
+      "shownCard": "Shown at the table: {parts}.",
+      "crit": "{who} rolled a natural 20{flavor}.",
+      "fumble": "{who} rolled a natural 1{flavor}.",
+      "playerAs": "{player} as {character}",
+      "late": "(joined late)",
+      "found": "Found as loot: {items}."
+    },
+    "Combat": {
+      "overview": "In all, {fights} with {rounds}.",
+      "fightsOne": "{count} fight",
+      "fightsOther": "{count} fights",
+      "roundsOne": "{count} round",
+      "roundsOther": "{count} rounds",
+      "damageHealing": "The heroes dealt {damage} damage and healed {healing}.",
+      "damage": "The heroes dealt {damage} damage.",
+      "healing": "The heroes healed {healing}.",
+      "defeatedOne": "{count} foe defeated.",
+      "defeatedOther": "{count} foes defeated.",
+      "downedOne": "{count} hero went down.",
+      "downedOther": "{count} heroes went down.",
+      "critsOne": "{count} critical hit.",
+      "critsOther": "{count} critical hits.",
+      "mvp": "Hero of the night: {names}."
+    },
+    "Card": {
+      "previously": "Previously",
+      "session": "Session {number}, {date}",
+      "quiet": "A quiet night, nothing to report.",
+      "open": "Open the chronicle"
+    },
+    "Missed": {
+      "title": "What you missed",
+      "sinceStart": "Since the session began",
+      "sinceAway": "While you were away",
+      "last": "Last time, session {number}, {date}",
+      "private": "Only you can see this."
+    }
+  }
+}
