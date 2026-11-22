@@ -2,7 +2,7 @@
   "id": "sephrals-session-chronicle",
   "title": "Sephral’s Session Chronicle",
   "description": "A recap of every game night, written for you without AI: one journal page per session with scenes, fights, level ups, loot, shown handouts and big rolls, a Previously card at the next start and a private What you missed for players who come late.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "compatibility": {
     "minimum": 13,
     "verified": "14.370"
