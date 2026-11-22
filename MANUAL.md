@@ -114,6 +114,7 @@ The first button in the module settings, *Sephral’s Modules* (GMs only), opens
 | `endSession()` | Active GM. Ends the running session and writes its final page. |
 | `previously(pageId, {mode})` | Active GM. Posts the card *Previously* of a page again, `mode` is `"everyone"` or `"gm"`. |
 | `scan()` | Active GM. Looks at who is online now. |
+| `samples()` | Sample windows with a made-up game night, for translators and testers: the window, a session page, the chat cards and the end question. Each entry has an `open()` that shows it. Nothing is saved or posted, and the other Sephral modules are not needed. |
 | `runSelfTest()` | GM. Runs the self test. |
 | `saveDebugFile()` | GM. Saves the debug file. |
 

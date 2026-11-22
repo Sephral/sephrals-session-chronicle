@@ -234,6 +234,29 @@
       "sinceAway": "Während du weg warst",
       "last": "Letztes Mal, Sitzung {number}, {date}",
       "private": "Das siehst nur du."
+    },
+    "Sample": {
+      "GroupWindows": "Chronikfenster",
+      "GroupPages": "Sitzungsseite",
+      "GroupCards": "Chatkarten",
+      "GroupQuestions": "Rückfragen",
+      "WindowRunning": "Fenster: laufende Sitzung",
+      "WindowBetween": "Fenster: zwischen den Sitzungen",
+      "WindowEmpty": "Fenster: erster Start, noch keine Seite",
+      "WindowPlayer": "Fenster: Spieleransicht",
+      "PageFull": "Seite mit Kämpfen, Fotos und Beute",
+      "PagePlain": "Seite ohne andere Module",
+      "PageQuiet": "Seite einer ruhigen Sitzung",
+      "CardPrevious": "Karte Bisher",
+      "CardPreviousQuiet": "Karte Bisher nach einem ruhigen Abend",
+      "CardMissedStart": "Was du verpasst hast: spät gekommen",
+      "CardMissedAway": "Was du verpasst hast: auch letztes Mal gefehlt",
+      "QuestionEnd": "Rückfrage: Sitzung beenden",
+      "SceneRoad": "Der Weg zur Mühle",
+      "SceneCellar": "Der Keller",
+      "Letter": "Ein Brief des Müllers",
+      "Picture": "Die Mühle bei Nacht",
+      "Note": "Der Troll ist tot, aber der Müller hat uns nicht alles erzählt."
     }
   }
 }

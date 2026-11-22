@@ -16,7 +16,7 @@ const {ApplicationV2, HandlebarsApplicationMixin} = foundry.applications.api;
 export const APP_ID = "ssc-chronicle";
 
 /** The icons of the kinds of facts. */
-const KIND_ICONS = {scene: "fa-map", combat: "fa-swords", level: "fa-arrow-up-right-dots", item: "fa-gem",
+export const KIND_ICONS = {scene: "fa-map", combat: "fa-swords", level: "fa-arrow-up-right-dots", item: "fa-gem",
   shown: "fa-image", roll: "fa-dice-d20"};
 
 /**
@@ -30,6 +30,61 @@ function clock(ms) {
   } catch {
     return new Date(ms).toISOString().slice(11, 16);
   }
+}
+
+/**
+ * What the window shows, from plain data (the sample windows use it with made-up data).
+ * @param {object} data
+ * @param {object|null} data.open        The running session
+ * @param {string[]} data.players        Who is at the table
+ * @param {{id: string, name: string, flags: object}[]} data.pages   Past session pages, oldest first
+ * @param {string} data.noteValue
+ * @param {string} data.lastName         Name of the newest page
+ * @param {boolean} data.active          This client is the active GM
+ * @param {boolean} data.isGM
+ * @param {boolean} data.hasJournal
+ * @returns {object}
+ */
+export function buildContext({open, players, pages, noteValue, lastName, active, isGM, hasJournal}) {
+  let session = null;
+  if ( open ) {
+    const counts = {};
+    for ( const event of open.events ) counts[event.k] = (counts[event.k] ?? 0) + 1;
+    session = {
+      title: t("SSC.App.sessionTitle", {number: open.number}),
+      started: t("SSC.App.since", {time: clock(open.started), date: formatDate(open.started)}),
+      players,
+      playersText: players.join(", "),
+      counts: Object.entries(counts).map(([kind, count]) => ({count, icon: KIND_ICONS[kind], label: t(count === 1 ? `SSC.KindOne.${kind}` : `SSC.Kind.${kind}`)})),
+      facts: [...open.events].sort((a, b) => b.t - a.t).slice(0, 14).map(e => ({id: e.id, time: clock(e.t), text: factText(e)}))
+    };
+  }
+  return {
+    theme: setting("theme"),
+    isGM,
+    canWrite: active,
+    canWriteNow: active && !!open,
+    canEnd: active && !!open,
+    hasJournal,
+    session,
+    noteValue,
+    noteHint: open ? t("SSC.App.noteHintOpen") : (lastName ? t("SSC.App.noteHintLast", {name: lastName}) : t("SSC.App.noteHintNone")),
+    pages: [...pages].reverse().map(page => {
+      const flags = page.flags ?? {};
+      const facts = flags.summary
+        ? ["scenes", "fights", "levelUps", "items", "shown", "highlights"].reduce((sum, key) => sum + (flags.summary[key]?.length ?? 0), 0)
+        : 0;
+      return {id: page.id, name: page.name, number: flags.session?.number ?? "",
+        summary: t("SSC.App.pageSummary", {players: flags.attendees?.length ?? 0, facts})};
+    }),
+    text: {
+      current: t("SSC.App.current"), nobody: t("SSC.App.nobody"), noFacts: t("SSC.App.noFacts"),
+      noSession: t("SSC.App.noSession"), noteLabel: t("SSC.App.noteLabel"), notePlaceholder: t("SSC.App.notePlaceholder"),
+      write: t("SSC.App.write"), end: t("SSC.App.end"), openJournal: t("SSC.App.openJournal"),
+      onlyActive: t("SSC.App.onlyActive"), past: t("SSC.App.past"), noPages: t("SSC.App.noPages"),
+      previously: t("SSC.App.previously"), removeFact: t("SSC.App.removeFact")
+    }
+  };
 }
 
 export class ChronicleApp extends HandlebarsApplicationMixin(ApplicationV2) {
@@ -60,52 +115,19 @@ export class ChronicleApp extends HandlebarsApplicationMixin(ApplicationV2) {
 
   /** @override */
   async _prepareContext() {
-    const state = currentState();
-    const open = state.current;
+    const open = currentState().current;
     const pages = sessionPages();
-    const active = isActiveGM();
-    let session = null;
-    if ( open ) {
-      const counts = {};
-      for ( const event of open.events ) counts[event.k] = (counts[event.k] ?? 0) + 1;
-      const players = attendeesOf(open).map(a => a.name);
-      session = {
-        title: t("SSC.App.sessionTitle", {number: open.number}),
-        started: t("SSC.App.since", {time: clock(open.started), date: formatDate(open.started)}),
-        players,
-        playersText: players.join(", "),
-        counts: Object.entries(counts).map(([kind, count]) => ({count, icon: KIND_ICONS[kind], label: t(count === 1 ? `SSC.KindOne.${kind}` : `SSC.Kind.${kind}`)})),
-        facts: [...open.events].sort((a, b) => b.t - a.t).slice(0, 14).map(e => ({id: e.id, time: clock(e.t), text: factText(e)}))
-      };
-    }
     const last = pages.at(-1);
-    const noteValue = open ? (open.note ?? "") : (last ? noteOfPage(last) : "");
-    return {
-      theme: setting("theme"),
+    return buildContext({
+      open,
+      players: open ? attendeesOf(open).map(a => a.name) : [],
+      pages: pages.map(page => ({id: page.id, name: page.name, flags: page.flags?.[MODULE_ID] ?? {}})),
+      noteValue: open ? (open.note ?? "") : (last ? noteOfPage(last) : ""),
+      lastName: last?.name ?? "",
+      active: isActiveGM(),
       isGM: game.user.isGM,
-      canWrite: active,
-      canWriteNow: active && !!open,
-      canEnd: active && !!open,
-      hasJournal: !!journal(),
-      session,
-      noteValue,
-      noteHint: open ? t("SSC.App.noteHintOpen") : (last ? t("SSC.App.noteHintLast", {name: last.name}) : t("SSC.App.noteHintNone")),
-      pages: [...pages].reverse().map(page => {
-        const flags = (page.flags?.[MODULE_ID] ?? {});
-        const facts = flags.summary
-          ? ["scenes", "fights", "levelUps", "items", "shown", "highlights"].reduce((sum, key) => sum + (flags.summary[key]?.length ?? 0), 0)
-          : 0;
-        return {id: page.id, name: page.name, number: flags.session?.number ?? "",
-          summary: t("SSC.App.pageSummary", {players: flags.attendees?.length ?? 0, facts})};
-      }),
-      text: {
-        current: t("SSC.App.current"), nobody: t("SSC.App.nobody"), noFacts: t("SSC.App.noFacts"),
-        noSession: t("SSC.App.noSession"), noteLabel: t("SSC.App.noteLabel"), notePlaceholder: t("SSC.App.notePlaceholder"),
-        write: t("SSC.App.write"), end: t("SSC.App.end"), openJournal: t("SSC.App.openJournal"),
-        onlyActive: t("SSC.App.onlyActive"), past: t("SSC.App.past"), noPages: t("SSC.App.noPages"),
-        previously: t("SSC.App.previously"), removeFact: t("SSC.App.removeFact")
-      }
-    };
+      hasJournal: !!journal()
+    });
   }
 
   /** @override */
@@ -119,7 +141,7 @@ export class ChronicleApp extends HandlebarsApplicationMixin(ApplicationV2) {
   _onRender(context, options) {
     super._onRender(context, options);
     this.element.dataset.sscTheme = setting("theme");
-    const field = this.element.querySelector(".ssc-note-field");
+    const field = this.isSample ? null : this.element.querySelector(".ssc-note-field");
     field?.addEventListener("change", () => {
       const open = currentState().current;
       const last = sessionPages().at(-1);

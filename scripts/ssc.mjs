@@ -9,6 +9,7 @@ import {registerHubModule} from "./hub.mjs";
 import {applyModuleLanguage} from "./language.mjs";
 import {noticeNewVersions, runSelfTest} from "./selftest.mjs";
 import {changeLanguage, registerSettings} from "./settings.mjs";
+import {sampleWindows} from "./sample-windows.mjs";
 import {registerUsage} from "./usage.mjs";
 
 /** The name of the tool in the scene controls. */
@@ -72,6 +73,8 @@ Hooks.once("init", () => {
     ageSession,
     /** Active GM. Save the state at once. */
     flush,
+    /** Sample windows with made-up data for translators and testers, nothing is saved. */
+    samples: () => sampleWindows(),
     /** Check the module (GM). */
     runSelfTest,
     /** Save the debug file of Sephral's modules (GM). */

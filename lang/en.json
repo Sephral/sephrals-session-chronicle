@@ -234,6 +234,29 @@
       "sinceAway": "While you were away",
       "last": "Last time, session {number}, {date}",
       "private": "Only you can see this."
+    },
+    "Sample": {
+      "GroupWindows": "Chronicle window",
+      "GroupPages": "Session page",
+      "GroupCards": "Chat cards",
+      "GroupQuestions": "Questions",
+      "WindowRunning": "Window: running session",
+      "WindowBetween": "Window: between sessions",
+      "WindowEmpty": "Window: first start, no page yet",
+      "WindowPlayer": "Window: player view",
+      "PageFull": "Page with fights, photos and loot",
+      "PagePlain": "Page without other modules",
+      "PageQuiet": "Page of a quiet session",
+      "CardPrevious": "Previously card",
+      "CardPreviousQuiet": "Previously card after a quiet night",
+      "CardMissedStart": "What you missed: late arrival",
+      "CardMissedAway": "What you missed: also missed last time",
+      "QuestionEnd": "Question: end session",
+      "SceneRoad": "The road to the mill",
+      "SceneCellar": "The cellar",
+      "Letter": "A letter from the miller",
+      "Picture": "The mill at night",
+      "Note": "The troll is dead, but the miller has not told us everything."
     }
   }
 }
